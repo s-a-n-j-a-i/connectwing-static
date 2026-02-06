@@ -8,8 +8,6 @@ document.addEventListener("alpine:init", () => {
       const storedTheme = window.localStorage.getItem("cw-theme");
       if (storedTheme === "light" || storedTheme === "dark") {
         this.theme = storedTheme;
-      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        this.theme = "dark";
       }
       this.applyTheme();
 
