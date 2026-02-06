@@ -1,0 +1,8 @@
+Stock photos downloaded from Pexels (free stock license):
+
+- hero-stock.jpg: https://www.pexels.com/photo/men-and-women-discussing-about-business-5716001/
+- software-stock.jpg: https://www.pexels.com/photo/turned-on-gray-laptop-computer-1181675/
+- telematics-stock.jpg: https://www.pexels.com/photo/an-aerial-shot-of-semi-trucks-parked-at-a-lot-8782663/
+- infrastructure-stock.jpg: https://www.pexels.com/photo/person-standing-beside-server-racks-5489456/
+- telematics-secondary-stock.jpg: https://www.pexels.com/photo/view-of-container-truck-in-yard-13961752/
+- automation-stock.jpg: https://www.pexels.com/photo/robot-arm-holding-a-laboratory-flask-19233057/

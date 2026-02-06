@@ -1,0 +1,352 @@
+﻿<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ConnectWing provides enterprise custom software, telematics engineering, and IT infrastructure consulting across East and Central Africa."
+    />
+    <title>ConnectWing | Bridging Ambition with Automation.</title>
+
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <script defer src="assets/vendor/alpine-intersect.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/vendor/alpine.min.js"></script>
+  </head>
+  <body x-data="siteApp()" class="font-body text-cw-ink antialiased dark:bg-cw-navy dark:text-white">
+    <div class="min-h-screen bg-cw-ice texture dark:bg-cw-navy">
+      <header
+        class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+        :class="scrolled ? 'bg-white/80 shadow-soft backdrop-blur-xl ring-1 ring-cw-mist/80 dark:bg-cw-navy/80 dark:ring-cw-aqua/45' : 'bg-transparent'"
+      >
+        <div class="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div class="flex h-24 items-center justify-between gap-3">
+            <a href="#home" class="flex items-center gap-3" @click="closeNav()">
+              <img
+                src="assets/img/logo.png"
+                alt="ConnectWing logo"
+                class="h-20 w-20 object-contain"
+              />
+              <div>
+                <p class="font-display text-xl font-semibold text-cw-navy dark:text-white">ConnectWing</p>
+                <p class="text-xs font-medium uppercase tracking-[0.16em] text-cw-aqua dark:text-cw-amber">Technical Consultancy</p>
+              </div>
+            </a>
+
+            <div class="hidden items-center gap-3 md:flex">
+              <nav class="flex items-center gap-8 text-sm font-semibold">
+                <a href="#services" class="text-cw-ink transition hover:text-cw-aqua dark:text-cw-mist dark:hover:text-cw-amber">Services</a>
+                <a href="#telematics" class="text-cw-ink transition hover:text-cw-aqua dark:text-cw-mist dark:hover:text-cw-amber">Telematics</a>
+                <a href="#automation" class="text-cw-ink transition hover:text-cw-aqua dark:text-cw-mist dark:hover:text-cw-amber">Automation</a>
+                <a href="#contact" class="rounded-full bg-gradient-to-r from-cw-cobalt to-cw-aqua px-5 py-2.5 text-white shadow-soft transition hover:opacity-95">Contact</a>
+              </nav>
+              <button
+                type="button"
+                @click="toggleTheme()"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-cw-mist bg-white/80 text-cw-navy backdrop-blur transition hover:border-cw-aqua dark:border-cw-aqua/35 dark:bg-cw-navy/90 dark:text-cw-amber"
+                :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              >
+                <svg x-show="theme !== 'dark'" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2.5m0 13V21m-6.364-2.636l1.768-1.768M16.596 7.404l1.768-1.768M3 12h2.5m13 0H21m-2.636 6.364l-1.768-1.768M7.404 7.404 5.636 5.636M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /></svg>
+                <svg x-show="theme === 'dark'" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1 1 11.21 3c-.11.37-.17.77-.17 1.18a7 7 0 0 0 8.79 6.79c.4 0 .79-.06 1.17-.18Z" /></svg>
+              </button>
+            </div>
+
+            <div class="flex items-center gap-2 md:hidden">
+              <button
+                type="button"
+                @click="toggleTheme()"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-cw-mist bg-white/80 text-cw-navy backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/90 dark:text-cw-amber"
+                :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              >
+                <svg x-show="theme !== 'dark'" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2.5m0 13V21m-6.364-2.636l1.768-1.768M16.596 7.404l1.768-1.768M3 12h2.5m13 0H21m-2.636 6.364l-1.768-1.768M7.404 7.404 5.636 5.636M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /></svg>
+                <svg x-show="theme === 'dark'" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1 1 11.21 3c-.11.37-.17.77-.17 1.18a7 7 0 0 0 8.79 6.79c.4 0 .79-.06 1.17-.18Z" /></svg>
+              </button>
+              <button
+                type="button"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-cw-mist bg-white/80 text-cw-navy backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/90 dark:text-cw-amber"
+                @click="navOpen = !navOpen"
+                :aria-expanded="navOpen.toString()"
+                aria-controls="mobile-nav"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <svg x-show="!navOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <svg x-show="navOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mobile-nav" x-show="navOpen" x-cloak x-transition.opacity.duration.200ms class="border-t border-cw-mist/80 bg-white/90 px-6 pb-6 pt-3 backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/90 md:hidden">
+          <div class="flex w-full flex-col gap-3 text-sm font-semibold">
+            <a href="#services" @click="closeNav()" class="rounded-lg px-3 py-2 text-cw-ink hover:bg-cw-ice dark:text-cw-mist dark:hover:bg-cw-navy/80">Services</a>
+            <a href="#telematics" @click="closeNav()" class="rounded-lg px-3 py-2 text-cw-ink hover:bg-cw-ice dark:text-cw-mist dark:hover:bg-cw-navy/80">Telematics</a>
+            <a href="#automation" @click="closeNav()" class="rounded-lg px-3 py-2 text-cw-ink hover:bg-cw-ice dark:text-cw-mist dark:hover:bg-cw-navy/80">Automation</a>
+            <a href="#contact" @click="closeNav()" class="rounded-lg bg-gradient-to-r from-cw-cobalt to-cw-aqua px-3 py-2 text-center text-white">Contact</a>
+          </div>
+        </div>
+      </header>
+
+      <main id="home">
+        <section class="relative pb-24 pt-32 sm:pt-36">
+          <div class="absolute inset-x-0 top-0 -z-10 h-[560px] soft-grid opacity-55"></div>
+          <div class="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
+            <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+              <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item transition-all duration-700">
+                <p class="inline-flex items-center rounded-full border border-cw-mist bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-cw-aqua backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/70 dark:text-cw-amber">
+                  Enterprise Engineering
+                </p>
+                <h1 class="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight text-cw-navy dark:text-white sm:text-5xl lg:text-[3.4rem]">
+                  Bridging Ambition with Automation.
+                </h1>
+                <p class="mt-6 max-w-2xl text-lg leading-relaxed text-cw-ink/85 dark:text-cw-mist/90">
+                  Modern digital products, telematics integrations, and resilient infrastructure for organizations that require measurable operational performance.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                  <a href="#services" class="rounded-full bg-gradient-to-r from-cw-cobalt to-cw-aqua px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:opacity-95">
+                    Explore Services
+                  </a>
+                  <a href="#contact" class="rounded-full border border-cw-mist bg-white/80 px-6 py-3 text-sm font-semibold text-cw-navy backdrop-blur transition hover:border-cw-aqua dark:border-cw-aqua/40 dark:bg-cw-navy/70 dark:text-white">
+                    Start a Consultation
+                  </a>
+                </div>
+                <div class="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
+                  <div class="rounded-2xl border border-cw-mist bg-white/80 px-4 py-3 backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/75">
+                    <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Scope</p>
+                    <p class="mt-1 text-sm font-semibold text-cw-navy dark:text-white">Software and Telematics</p>
+                  </div>
+                  <div class="rounded-2xl border border-cw-mist bg-white/80 px-4 py-3 backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/75">
+                    <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Focus</p>
+                    <p class="mt-1 text-sm font-semibold text-cw-navy dark:text-white">Reliability and Scale</p>
+                  </div>
+                  <div class="rounded-2xl border border-cw-mist bg-white/80 px-4 py-3 backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/75">
+                    <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Regions</p>
+                    <p class="mt-1 text-sm font-semibold text-cw-navy dark:text-white">TZ, ZM, KE, UG</p>
+                  </div>
+                </div>
+              </div>
+
+              <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item relative transition-all duration-700">
+                <div class="rounded-[2rem] border border-cw-mist bg-gradient-to-br from-cw-navy via-cw-cobalt to-cw-aqua p-4 shadow-lift dark:border-cw-aqua/35">
+                  <img src="assets/img/hero-stock.jpg" alt="Business technology consultation team" class="h-[500px] w-full rounded-[1.6rem] object-cover" loading="lazy" />
+                </div>
+                <div class="absolute -bottom-5 left-6 rounded-2xl border border-cw-mist bg-white/90 px-5 py-3 text-sm font-semibold text-cw-navy shadow-soft backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/85 dark:text-white">
+                  Regional operations include Tanzania, Zambia, Kenya, and Uganda.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="services" class="py-24">
+          <div class="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
+            <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item max-w-3xl transition-all duration-700">
+              <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cw-aqua dark:text-cw-amber">Core Service Pillars</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold text-cw-navy dark:text-white sm:text-4xl">
+                Modern engineering for business-critical operations.
+              </h2>
+              <p class="mt-4 text-base text-cw-ink/80 dark:text-cw-mist/90">
+                Every service stream is designed for integration readiness, operational visibility, and measurable execution speed.
+              </p>
+            </div>
+
+            <div class="mt-10 grid gap-6 lg:grid-cols-3">
+              <article x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item group overflow-hidden rounded-3xl border border-cw-mist bg-white/80 shadow-soft backdrop-blur transition-all duration-700 hover:-translate-y-1 dark:border-cw-aqua/35 dark:bg-cw-navy/85">
+                <div class="h-52 overflow-hidden bg-gradient-to-br from-cw-navy via-cw-cobalt to-cw-aqua p-2">
+                  <img src="assets/img/software-stock.jpg" alt="Software development workstation" class="h-full w-full rounded-2xl object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                </div>
+                <div class="p-7">
+                  <p class="text-xs font-semibold uppercase tracking-[0.13em] text-cw-aqua dark:text-cw-amber">Pillar 01</p>
+                  <h3 class="mt-2 font-display text-2xl font-semibold text-cw-navy dark:text-white">Custom Software</h3>
+                  <ul class="mt-4 space-y-2 text-sm text-cw-ink/90 dark:text-cw-mist/90">
+                    <li>- Bespoke CRM and ERP development</li>
+                    <li>- Ticketing and service management systems</li>
+                    <li>- Web and mobile application delivery</li>
+                  </ul>
+                  <p class="mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Integrations: WhatsApp API, Google Maps, SMS Gateway</p>
+                </div>
+              </article>
+
+              <article x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item group overflow-hidden rounded-3xl border border-cw-mist bg-white/80 shadow-soft backdrop-blur transition-all duration-700 hover:-translate-y-1 dark:border-cw-aqua/35 dark:bg-cw-navy/85">
+                <div class="h-52 overflow-hidden bg-gradient-to-br from-cw-cobalt via-cw-aqua to-cw-navy p-2">
+                  <img src="assets/img/telematics-stock.jpg" alt="Logistics yard for telematics tracking" class="h-full w-full rounded-2xl object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                </div>
+                <div class="p-7">
+                  <p class="text-xs font-semibold uppercase tracking-[0.13em] text-cw-aqua dark:text-cw-amber">Pillar 02</p>
+                  <h3 class="mt-2 font-display text-2xl font-semibold text-cw-navy dark:text-white">Telematics and IoT</h3>
+                  <ul class="mt-4 space-y-2 text-sm text-cw-ink/90 dark:text-cw-mist/90">
+                    <li>- Protocol decoding with LLS data pipelines</li>
+                    <li>- RS232 and RS485 data integration workflows</li>
+                    <li>- Platform integration: Gurtam, Trakzee, custom middleware</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item group overflow-hidden rounded-3xl border border-cw-mist bg-white/80 shadow-soft backdrop-blur transition-all duration-700 hover:-translate-y-1 dark:border-cw-aqua/35 dark:bg-cw-navy/85">
+                <div class="h-52 overflow-hidden bg-gradient-to-br from-cw-aqua via-cw-cobalt to-cw-navy p-2">
+                  <img src="assets/img/infrastructure-stock.jpg" alt="Enterprise server infrastructure" class="h-full w-full rounded-2xl object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                </div>
+                <div class="p-7">
+                  <p class="text-xs font-semibold uppercase tracking-[0.13em] text-cw-aqua dark:text-cw-amber">Pillar 03</p>
+                  <h3 class="mt-2 font-display text-2xl font-semibold text-cw-navy dark:text-white">IT Consultation and Infrastructure</h3>
+                  <ul class="mt-4 space-y-2 text-sm text-cw-ink/90 dark:text-cw-mist/90">
+                    <li>- Business suites: Google Workspace and Zoho Workplace</li>
+                    <li>- VPS hosting, business email, managed webhosting</li>
+                    <li>- Domain lifecycle and DNS governance</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="telematics" class="py-24">
+          <div class="grid w-full gap-10 px-6 sm:px-8 lg:px-12 xl:px-16 lg:grid-cols-[1fr_1.08fr] lg:items-start">
+            <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item transition-all duration-700">
+              <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cw-aqua dark:text-cw-amber">Telematics Expertise</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold text-cw-navy dark:text-white sm:text-4xl">
+                Hardware, protocols, and platforms working as one system.
+              </h2>
+              <p class="mt-5 max-w-2xl text-base leading-relaxed text-cw-ink/85 dark:text-cw-mist/90">
+                ConnectWing delivers robust telemetry pipelines from field hardware to fleet visibility layers, optimized for clean data flow and trustworthy reporting.
+              </p>
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-cw-mist bg-white/80 p-5 shadow-soft backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/75">
+                  <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Protocol Layer</p>
+                  <p class="mt-2 text-sm text-cw-ink/90 dark:text-cw-mist/90">LLS decoding with RS232 and RS485 serial normalization.</p>
+                </div>
+                <div class="rounded-2xl border border-cw-mist bg-white/80 p-5 shadow-soft backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/75">
+                  <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Platform Layer</p>
+                  <p class="mt-2 text-sm text-cw-ink/90 dark:text-cw-mist/90">Integrations across Gurtam, Trakzee, and custom middleware.</p>
+                </div>
+              </div>
+            </div>
+
+            <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item space-y-5 transition-all duration-700">
+              <div class="relative overflow-hidden rounded-3xl border border-cw-mist bg-gradient-to-br from-cw-navy via-cw-cobalt to-cw-aqua p-2 shadow-lift dark:border-cw-aqua/35">
+                <img src="assets/img/telematics-secondary-stock.jpg" alt="Fleet vehicles in route operations" class="h-64 w-full rounded-2xl object-cover" loading="lazy" />
+              </div>
+              <div class="rounded-3xl border border-cw-mist bg-white/85 p-7 shadow-soft backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/80">
+                <h3 class="font-display text-2xl font-semibold text-cw-navy dark:text-white">Supported Device Ecosystem</h3>
+                <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Teltonika</span>
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Ruptela</span>
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Queclink</span>
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Meitrack</span>
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Starcom</span>
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Jointech</span>
+                  <span class="rounded-xl border border-cw-mist bg-cw-ice px-3 py-2 text-center text-sm font-semibold text-cw-navy dark:border-cw-aqua/40 dark:bg-cw-navy/80 dark:text-cw-mist">Cellocator</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="automation" class="py-24">
+          <div class="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
+            <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item overflow-hidden rounded-3xl border border-cw-mist bg-white/80 shadow-lift backdrop-blur transition-all duration-700 dark:border-cw-aqua/35 dark:bg-cw-navy/80">
+              <div class="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
+                <div class="p-8 sm:p-10">
+                  <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cw-aqua dark:text-cw-amber">Special Feature</p>
+                  <h2 class="mt-3 font-display text-3xl font-semibold text-cw-navy dark:text-white sm:text-4xl">Email Reading Automation</h2>
+                  <p class="mt-5 max-w-3xl text-base leading-relaxed text-cw-ink/85 dark:text-cw-mist/90">
+                    Incoming email is interpreted, classified, and routed automatically to the right workflow with auditable updates and measurable turnaround improvements.
+                  </p>
+                  <div class="mt-8 grid gap-4 sm:grid-cols-3">
+                    <div class="rounded-2xl border border-cw-mist bg-cw-ice/80 p-4 dark:border-cw-aqua/35 dark:bg-cw-navy/80">
+                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Step 01</p>
+                      <p class="mt-2 text-sm font-semibold text-cw-navy dark:text-white">Read and classify email streams.</p>
+                    </div>
+                    <div class="rounded-2xl border border-cw-mist bg-cw-ice/80 p-4 dark:border-cw-aqua/35 dark:bg-cw-navy/80">
+                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Step 02</p>
+                      <p class="mt-2 text-sm font-semibold text-cw-navy dark:text-white">Trigger routing and alerts.</p>
+                    </div>
+                    <div class="rounded-2xl border border-cw-mist bg-cw-ice/80 p-4 dark:border-cw-aqua/35 dark:bg-cw-navy/80">
+                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-cw-aqua dark:text-cw-amber">Step 03</p>
+                      <p class="mt-2 text-sm font-semibold text-cw-navy dark:text-white">Expose auditable metrics.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative min-h-[320px] bg-gradient-to-br from-cw-cobalt via-cw-aqua to-cw-navy lg:min-h-full">
+                  <div class="absolute inset-0 soft-grid opacity-30"></div>
+                  <img src="assets/img/automation-stock.jpg" alt="Automation and robotics workflow" class="relative h-full w-full object-cover" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pb-8">
+          <div class="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
+            <div class="rounded-3xl border border-cw-mist/80 bg-gradient-to-r from-cw-navy via-cw-cobalt to-cw-aqua p-7 text-white shadow-lift dark:border-cw-aqua/35 sm:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.16em] text-cw-amber">Regional Coverage</p>
+              <h2 class="mt-3 font-display text-2xl font-semibold sm:text-3xl">Regional Delivery Coverage</h2>
+              <p class="mt-3 text-sm leading-relaxed text-white/85">Active project delivery and support includes Tanzania, Zambia, Kenya, and Uganda.</p>
+            </div>
+          </div>
+        </section>
+        <section id="contact" class="py-20">
+          <div class="grid w-full gap-10 px-6 sm:px-8 lg:px-12 xl:px-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item transition-all duration-700">
+              <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cw-aqua dark:text-cw-amber">Contact Us</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold text-cw-navy dark:text-white sm:text-4xl">Start Your Next Technical Initiative</h2>
+              <p class="mt-5 text-base leading-relaxed text-cw-ink/85 dark:text-cw-mist/90">Share your business objective and technical context. ConnectWing will respond with a practical path to implementation.</p>
+              <div class="mt-8 rounded-2xl border border-cw-mist bg-white/85 p-5 text-sm text-cw-ink/85 shadow-soft backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/80 dark:text-cw-mist/90">
+                <p><span class="font-semibold text-cw-navy dark:text-white">Project inquiries:</span> hi@connectwing.com</p>
+                <p class="mt-2">We respond with an initial technical assessment and next-step recommendation.</p>
+              </div>
+            </div>
+
+            <div x-data="reveal()" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="reveal-item rounded-3xl border border-cw-mist bg-white/85 p-7 shadow-lift backdrop-blur transition-all duration-700 dark:border-cw-aqua/35 dark:bg-cw-navy/85 sm:p-8">
+              <form action="https://formsubmit.co/webmaster@connectwing.com" method="POST" @submit="validateAndSubmit($event)" class="space-y-5">
+                <input type="hidden" name="_subject" value="ConnectWing Website Inquiry" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+
+                <div>
+                  <label for="full_name" class="mb-2 block text-sm font-semibold text-cw-navy dark:text-white">Full Name</label>
+                  <input id="full_name" name="full_name" type="text" required minlength="2" class="w-full rounded-xl border border-cw-mist px-4 py-3 text-sm text-cw-ink outline-none transition focus:border-cw-aqua focus:ring-4 focus:ring-cw-aqua/15 dark:border-cw-aqua/35 dark:bg-cw-navy/80 dark:text-white" placeholder="Your full name" />
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label for="email" class="mb-2 block text-sm font-semibold text-cw-navy dark:text-white">Work Email</label>
+                    <input id="email" name="email" type="email" required class="w-full rounded-xl border border-cw-mist px-4 py-3 text-sm text-cw-ink outline-none transition focus:border-cw-aqua focus:ring-4 focus:ring-cw-aqua/15 dark:border-cw-aqua/35 dark:bg-cw-navy/80 dark:text-white" placeholder="name@company.com" />
+                  </div>
+                  <div>
+                    <label for="phone" class="mb-2 block text-sm font-semibold text-cw-navy dark:text-white">Phone Number</label>
+                    <input id="phone" name="phone" type="tel" required minlength="7" class="w-full rounded-xl border border-cw-mist px-4 py-3 text-sm text-cw-ink outline-none transition focus:border-cw-aqua focus:ring-4 focus:ring-cw-aqua/15 dark:border-cw-aqua/35 dark:bg-cw-navy/80 dark:text-white" placeholder="+255 700 000 000" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="company" class="mb-2 block text-sm font-semibold text-cw-navy dark:text-white">Company</label>
+                  <input id="company" name="company" type="text" required class="w-full rounded-xl border border-cw-mist px-4 py-3 text-sm text-cw-ink outline-none transition focus:border-cw-aqua focus:ring-4 focus:ring-cw-aqua/15 dark:border-cw-aqua/35 dark:bg-cw-navy/80 dark:text-white" placeholder="Organization name" />
+                </div>
+
+                <div>
+                  <label for="message" class="mb-2 block text-sm font-semibold text-cw-navy dark:text-white">Project Brief</label>
+                  <textarea id="message" name="message" rows="5" required minlength="20" class="w-full rounded-xl border border-cw-mist px-4 py-3 text-sm text-cw-ink outline-none transition focus:border-cw-aqua focus:ring-4 focus:ring-cw-aqua/15 dark:border-cw-aqua/35 dark:bg-cw-navy/80 dark:text-white" placeholder="Briefly describe your current process, technical objective, and timeline."></textarea>
+                </div>
+
+                <button type="submit" class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-cw-cobalt to-cw-aqua px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:opacity-95">Send Inquiry</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-cw-mist/80 bg-white/80 py-8 backdrop-blur dark:border-cw-aqua/35 dark:bg-cw-navy/85">
+        <div class="flex w-full flex-col gap-3 px-6 sm:px-8 lg:px-12 xl:px-16 text-sm text-cw-ink/80 dark:text-cw-mist/90 sm:flex-row sm:items-center sm:justify-between">
+          <p>ConnectWing. Enterprise software, telematics, and infrastructure consulting.</p>
+          <p>webmaster@connectwing.com</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+
+

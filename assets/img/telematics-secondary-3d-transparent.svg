@@ -1,0 +1,28 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ts1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F6FBFF"/>
+      <stop offset="1" stop-color="#9DC9FF"/>
+    </linearGradient>
+    <linearGradient id="ts2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#82DAFF"/>
+      <stop offset="1" stop-color="#3263E3"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(190 86)">
+    <ellipse cx="420" cy="538" rx="324" ry="30" fill="#123A86" fill-opacity="0.24"/>
+
+    <circle cx="420" cy="250" r="206" stroke="url(#ts1)" stroke-width="16" stroke-dasharray="24 22"/>
+    <circle cx="420" cy="250" r="148" stroke="url(#ts1)" stroke-width="12" stroke-dasharray="18 16" opacity="0.92"/>
+
+    <circle cx="420" cy="250" r="74" fill="url(#ts2)"/>
+    <circle cx="420" cy="250" r="38" fill="#EEF7FF"/>
+
+    <rect x="384" y="352" width="72" height="126" rx="16" fill="url(#ts1)"/>
+    <rect x="344" y="464" width="152" height="24" rx="12" fill="url(#ts2)"/>
+  </g>
+
+  <circle cx="984" cy="152" r="66" fill="#88DFFF" fill-opacity="0.44"/>
+  <circle cx="226" cy="170" r="52" fill="#95AEFF" fill-opacity="0.38"/>
+</svg>

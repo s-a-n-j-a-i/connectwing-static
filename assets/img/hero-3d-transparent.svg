@@ -1,0 +1,42 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F6FBFF"/>
+      <stop offset="1" stop-color="#A7C8FF"/>
+    </linearGradient>
+    <linearGradient id="c2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7CD7FF"/>
+      <stop offset="1" stop-color="#2E5EE8"/>
+    </linearGradient>
+    <linearGradient id="c3" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#95A8FF"/>
+      <stop offset="1" stop-color="#2D3D98"/>
+    </linearGradient>
+    <filter id="shadow" x="-120" y="-120" width="1840" height="1140" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#08152B" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(280 160)">
+      <polygon points="470,60 760,220 470,380 180,220" fill="url(#c1)"/>
+      <polygon points="470,380 760,220 760,470 470,630" fill="url(#c2)"/>
+      <polygon points="470,380 180,220 180,470 470,630" fill="url(#c3)"/>
+
+      <polygon points="470,190 640,286 470,382 300,286" fill="#E9F4FF"/>
+      <polygon points="470,382 640,286 640,430 470,526" fill="#5A86F1"/>
+      <polygon points="470,382 300,286 300,430 470,526" fill="#405EC7"/>
+    </g>
+
+    <g transform="translate(1070 240)">
+      <circle cx="0" cy="0" r="126" fill="#9FE7FF" fill-opacity="0.9"/>
+      <circle cx="-28" cy="-26" r="54" fill="#F7FCFF" fill-opacity="0.78"/>
+      <ellipse cx="0" cy="148" rx="122" ry="26" fill="#08152B" fill-opacity="0.3"/>
+    </g>
+
+    <g transform="translate(180 520)">
+      <circle cx="0" cy="0" r="88" fill="#7BD6FF" fill-opacity="0.75"/>
+      <circle cx="-18" cy="-16" r="38" fill="#F5FBFF" fill-opacity="0.82"/>
+    </g>
+  </g>
+</svg>

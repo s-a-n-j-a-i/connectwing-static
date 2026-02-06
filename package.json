@@ -1,0 +1,23 @@
+{
+  "name": "connectwing-static",
+  "version": "1.0.0",
+  "description": "ConnectWing static website",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i ./assets/css/tailwind.input.css -o ./assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i ./assets/css/tailwind.input.css -o ./assets/css/tailwind.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.15.8",
+    "@fontsource/ibm-plex-sans": "^5.2.8",
+    "@fontsource/sora": "^5.2.8",
+    "@fontsource/work-sans": "^5.2.8",
+    "alpinejs": "^3.15.8"
+  }
+}
